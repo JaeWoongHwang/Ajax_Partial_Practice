@@ -1,0 +1,6 @@
+// 해당하는 comment의 id를 가지고 DOM에서 해당 comment를 제거하는 코드
+// Ajax로 comment를 삭제한 요청이 완료된 이후 destory.js.erb에서 해당하는 DOM에서 comment를 쉽게 제거하기 위해
+// DOM에 id="comment-<%=comment.id%>”로 유일한 id를 지정
+(function($){
+  $("#comment-<%= @comment.id %>").remove();
+})(jQuery)

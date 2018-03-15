@@ -1,0 +1,9 @@
+// Comment를 저장한 이후 입력폼을 비우고,
+// Comments 목록을 출력하는 DOM에 저장한 Comment 내용을 추가하는 코드
+(function($){
+  // comment_content에 있는 텍스트 필드값을 .val()안의 값으로 변경
+  $("#comment_content").val("")
+  // $("#comments").append("<li><%=@comment.content%></li>");
+  var html = "<%= escape_javascript(render(partial: 'comments/item', locals: {comment: @comment})) %>";
+  $("#comments").append(html);
+})(jQuery)

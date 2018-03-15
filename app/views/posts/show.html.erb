@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>Comments</strong>
+  <ui id = "comments">
+    <% @post.comments.each do |comment| %>
+      <!-- <li><%=  comment.content %></li> -->
+      <%= render partial: "comments/item", locals: { comment: comment } %>
+    <% end %>
+  </ui>
+</p>
+
+<p>
+  <%= form_for [@post, @post.comments.new], remote: true do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

@@ -1,0 +1,11 @@
+<!--Partial을 사용하여 복잡한 뷰를 구조화 -->
+<!--Rails에서의 Partial은 뷰 레이아웃을 렌더링 할 때 복잡하거나 반복적인 뷰를 단순화 시키고 재활용하기 위해 사용한다-->
+<li><%= comment.content %></li>
+
+<li id="comment-<%=comment.id%>">
+  <%= comment.content %>
+  <%= link_to "Delete", comment_path(comment),
+                        method: :delete,
+                        remote: true,
+                        data: {confirm: "Are you sure?"} %>
+</li>
